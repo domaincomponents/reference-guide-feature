@@ -84,10 +84,10 @@ Besides main modules, there are several extension modules which complement Axon 
 | Module | Artifact Id | Group Id | Maven Central | GitHub |
 | :--- | :--- | :--- | :--- | :---: |
 | [Axon AMQP](modules.md#axon-amqp) | axon-amqp | org.axonframework.extensions.amqp | [available](https://search.maven.org/search?q=a:axon-amqp) | [available](https://github.com/AxonFramework/extension-amqp) |
-| [Axon AMQP Spring Boot Starter](modules.md#axon-amqp-spring-boot-starter) | axon-amqp-spring-boot-starter | org.axonframework.extensions.amqp | [available](https://search.maven.org/search?q=a:axon-amqp-spring-boot-starter) |[available](https://github.com/AxonFramework/extension-amqp) |
+| [Axon AMQP Spring Boot Starter](modules.md#axon-amqp-spring-boot-starter) | axon-amqp-spring-boot-starter | org.axonframework.extensions.amqp | [available](https://search.maven.org/search?q=a:axon-amqp-spring-boot-starter) | [available](https://github.com/AxonFramework/extension-amqp) |
 | [Axon CDI](modules.md#axon-cdi) | axon-cdi | org.axonframework.extensions.cdi | [available](https://search.maven.org/search?q=a:axon-cdi) | [available](https://github.com/AxonFramework/extension-cdi) |
 | [Axon JGroups](modules.md#axon-jgroups) | axon-jgroups | org.axonframework.extensions.jgroups | [available](https://search.maven.org/search?q=a:axon-jgroups) | [available](https://github.com/AxonFramework/extension-jgroups) |
-| [Axon JGroups Spring Boot Starter](modules.md#axon-jgroups-spring-boot-starter) | axon-jgroups-spring-boot-starter | org.axonframework.extensions.jgroups | [available](https://search.maven.org/search?q=a:axon-jgroups-spring-boot-starter) |[available](https://github.com/AxonFramework/extension-jgroups) |
+| [Axon JGroups Spring Boot Starter](modules.md#axon-jgroups-spring-boot-starter) | axon-jgroups-spring-boot-starter | org.axonframework.extensions.jgroups | [available](https://search.maven.org/search?q=a:axon-jgroups-spring-boot-starter) | [available](https://github.com/AxonFramework/extension-jgroups) |
 | [Axon Kafka](modules.md#axon-kafka) | axon-kafka | org.axonframework.extensions.kafka | [available](https://search.maven.org/search?q=a:axon-kafka) | [available](https://github.com/AxonFramework/extension-kafka) |
 | [Axon Kafka Spring Boot Starter](modules.md#axon-kafka-spring-boot-starter) | axon-kafka-spring-boot-starter | org.axonframework.extensions.kafka | [available](https://search.maven.org/search?q=a:axon-kafka-spring-boot-starter) | [available](https://github.com/AxonFramework/extension-kafka) |
 | [Axon Kotlin](modules.md#axon-kotlin) | axon-kotlin | org.axonframework.extensions.kotlin | [available](https://search.maven.org/search?q=a:axon-kotlin) | [available](https://github.com/AxonFramework/extension-kotlin) |
@@ -153,3 +153,4 @@ This module provides support for distributed tracing of Axon applications. The [
 ### Axon Tracing Spring Boot Starter
 
 This module provides Spring auto-configuration on top of the `axon-tracing` module
+

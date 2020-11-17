@@ -10,7 +10,7 @@ Each context has a separate physical directory on each of the member nodes. This
 
 A depiction of multiple registered contexts within an Axon Server EE cluster is shown below
 
-![Multiple contexts within an Axon Server EE cluster](../../.gitbook/assets/multi-context.jpg)
+![Multiple contexts within an Axon Server EE cluster](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/multi-context.jpg)
 
 The [clustering](multi-context.md) section details the creation of the \__admin and default contexts_ when a new Axon Server cluster is created. The _\_admin_ context **is used to process all configuration changes in Axon Server, so it contains the master configuration from which all contexts get their information. The** \__admin_ context does not have an event store and the configuration information is stored in a control database. The _default_ context is the context used by clients when they have not specified any context information. In case you would like to create a cluster without creating a default context, it is recommended to use the [Automatic-Initialization](multi-context.md) feature where you can control explicitly which contexts can be created or not.
 

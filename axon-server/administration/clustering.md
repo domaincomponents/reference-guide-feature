@@ -14,13 +14,13 @@ An Axon Server EE cluster has 3 main areas of administration,
 
 A visual representation of the relationship between the 3 is shown below.
 
-![Relationship between Cluster Nodes / Replication Groups and Contexts](../../.gitbook/assets/clusters.jpg)
+![Relationship between Cluster Nodes / Replication Groups and Contexts](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/clusters.jpg)
 
 ## Setup Process
 
 The cluster setup process always begins by designating any one clean/uninitialized Axon Server EE node as the first member of the cluster. You can then run the "[init-cluster](admin-configuration/command-line-interface.md#cluster-enterprise-edition-only)" command on it which will create the following replication groups and contexts -&gt; _admin/default._
 
-From thereon, there are multiple ways to continue the setup depending upon your Event Store deployment topology. 
+From thereon, there are multiple ways to continue the setup depending upon your Event Store deployment topology.
 
 * Any other Axon Server EE node can be added to the cluster using the "register-node" command without associating it with any Replication Group / Context.
 * New Replication Groups/Contexts can be added and cluster member nodes can be associated with these. 
@@ -96,7 +96,7 @@ axoniq:
       users: []
 ```
 
-![Cluster overview after default configuration is applied](../../.gitbook/assets/cluster-template-default-configuration.png)
+![Cluster overview after default configuration is applied](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/cluster-template-default-configuration.png)
 
 _Cluster overview after default configuration is applied_
 
@@ -104,7 +104,7 @@ _Cluster overview after default configuration is applied_
 
 In order to avoid mistakes while writing a cluster configuration file, we have implemented an export button that will generate a cluster template file based on current setup.
 
-![Cluster Template export button location](../../.gitbook/assets/cluster-template-export-button.png)
+![Cluster Template export button location](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/cluster-template-export-button.png)
 
 _Location of export button at Settings page_
 

@@ -4,16 +4,15 @@
 
 Some of Axon's API's work perfectly well in Java, but have a rather awkward feel when transitioning over to Kotlin. The goal of the [Kotlin Extension](https://github.com/AxonFramework/extension-kotlin) is to remove that awkwardness, by providing [inline and reified](https://kotlinlang.org/docs/reference/inline-functions.html) methods of Axon's API.
 
-Several solutions are currently given, which can roughly be segregated into the distinct types of messages used by Axon. This thus provides a [commands](#commands), [events](#events) and [queries](#queries) section on this page.
+Several solutions are currently given, which can roughly be segregated into the distinct types of messages used by Axon. This thus provides a [commands](kotlin.md#commands), [events](kotlin.md#events) and [queries](kotlin.md#queries) section on this page.
 
 > **Experimental Release**
 >
-> Currently, the [Kotlin Extension](https://github.com/AxonFramework/extension-kotlin) has been release experimentally (e.g. release 0.1.0).
-> This means that all implementations are subject to change until a full release (e.g. a release 1.0.0) has been made.
+> Currently, the [Kotlin Extension](https://github.com/AxonFramework/extension-kotlin) has been release experimentally \(e.g. release 0.1.0\). This means that all implementations are subject to change until a full release \(e.g. a release 1.0.0\) has been made.
 
 ## Commands
 
-This section describes the additional functionality attached to Axon's [command dispatching and handling](../axon-framework/axon-framework-commands/README.md) logic.
+This section describes the additional functionality attached to Axon's [command dispatching and handling](../axon-framework/axon-framework-commands/) logic.
 
 ### CommandGateway
 
@@ -28,7 +27,7 @@ import org.axonframework.messaging.MetaData
 import org.slf4j.LoggerFactory
 
 class CommandDispatcher(private val commandGateway: CommandGateway) {
-    
+
     private val logger = LoggerFactory.getLogger(CommandDispatcher::class.java)
 
     // Sample usage providing specific logging logic, next to for example the LoggingInterceptor
@@ -53,12 +52,11 @@ class IssueCardCommand
 
 ## Events
 
-This section describes the additional functionality attached to Axon's [event publication and handling](../axon-framework/events/README.md) logic.
+This section describes the additional functionality attached to Axon's [event publication and handling](../axon-framework/events/) logic.
 
 ### Event Upcasters
 
-A simplified implementation of the [Single Event Upcaster](../axon-framework/events/event-versioning.md#event-upcasting) is given, which allows for a shorter implementation cycle.
-Making an upcaster to upcast the `CardIssuedEvent` from revision `0` to `1` can be written as follows:
+A simplified implementation of the [Single Event Upcaster](../axon-framework/events/event-versioning.md#event-upcasting) is given, which allows for a shorter implementation cycle. Making an upcaster to upcast the `CardIssuedEvent` from revision `0` to `1` can be written as follows:
 
 ```kotlin
 import com.fasterxml.jackson.databind.JsonNode
@@ -76,9 +74,10 @@ fun `CardIssuedEvent 0 to 1 Upcaster`(): SingleEventUpcaster =
 
 class CardIssuedEvent
 ```
+
 Alternatively, since `Revisions` is essentially a `Pair` of `String`, it is also possible to use Kotlin's [`to` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to.html):
 
-```kotlin               
+```kotlin
 EventUpcaster.singleEventUpcaster(
         eventType = CardIssuedEvent::class,
         storageType = JsonNode::class,
@@ -88,13 +87,14 @@ EventUpcaster.singleEventUpcaster(
     event
 }
 ```
+
 ## Queries
 
-This section describes the additional functionality attached to Axon's [query dispatching and handling](../axon-framework/queries/README.md) logic.
+This section describes the additional functionality attached to Axon's [query dispatching and handling](../axon-framework/queries/) logic.
 
 ### QueryGateway
 
-Several inlined methods have been introduced on the `QueryGateway` to use generics instead of explicit `Class` objects and `ResponseType` parameters. 
+Several inlined methods have been introduced on the `QueryGateway` to use generics instead of explicit `Class` objects and `ResponseType` parameters.
 
 ```kotlin
 import org.axonframework.queryhandling.QueryGateway
@@ -126,13 +126,15 @@ data class CountCardSummariesQuery(val filter: String = "")
 ```
 
 There are multiple variants of the `query` method provided, for each type of `ResponseType`:
-- `query`
-- `queryOptional`
-- `queryMany`
+
+* `query`
+* `queryOptional`
+* `queryMany`
 
 ### QueryUpdateEmitter
 
 An inline `emit` method has been added to `QueryUpdateEmitter` to simplify emit method's call by using generics and moving the lambda predicate at the end of parameter list. This way the lambda function can be moved outside of the parentheses.
+
 ```kotlin
 import org.axonframework.queryhandling.QueryUpdateEmitter
 import org.axonframework.eventhandling.EventHandler
@@ -156,3 +158,4 @@ class CardIssuedEvent(val id : String)
 class CountChangedUpdate
 data class CountCardSummariesQuery(val idFilter: String = "")
 ```
+

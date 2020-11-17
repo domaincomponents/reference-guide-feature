@@ -34,12 +34,10 @@ There are three options that AxonServer provides to maintain its configuration. 
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="cluster-template.md">Cluster template</a>
+      <td style="text-align:left"><a href="https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/axon-server/administration/admin-configuration/cluster-template.md">Cluster template</a>
       </td>
-      <td style="text-align:left">
-        <p>Managing cluster configuration as code</p>
-      </td>
-    </tr>    
-    
+      <td style="text-align:left">Managing cluster configuration as code</td>
+    </tr>
   </tbody>
 </table>
+

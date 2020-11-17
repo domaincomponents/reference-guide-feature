@@ -22,7 +22,7 @@ When combining DDD and CQRS, one divides an application into components, where e
 
 The image below shows a typical architecture of an Axon based application.
 
-![Architecture overview of a CQRS based Axon application](../.gitbook/assets/architecture-overview.png)
+![Architecture overview of a CQRS based Axon application](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/architecture-overview.png)
 
 In such an architecture, a UI \(or API\) can send commands to request to change an application's state. These Commands are handled by a Command Handling component, which uses a model to validate the command and make decisions on which side-effects to trigger \(if any\).
 
@@ -62,7 +62,7 @@ Axon takes location transparency further than placing services behind a logical 
 
 A system built up of Location Transparent components makes that system highly adaptable. For example, a monolithic system built out of well-separated components that communicate solely using Commands, Events and Queries, can be easily split into separately deployed units, without any impact on functionality.
 
-![Microservices Evolution through Location Transparency](../.gitbook/assets/location-transparency.png)
+![Microservices Evolution through Location Transparency](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/location-transparency.png)
 
 This makes Axon highly suitable for Microservices environments. Logic can be easily moved from, to, and in-between deployed components without impact on the functional aspects of the system as a whole. The location of logic can then be primarily decided upon based on the non-functional requirements of each individual component of that system. Components that have clearly different performance characteristics, or components that require a different release cycle, could, for example, be split out of a monolithic application to reduce the impact of changes to this component.
 

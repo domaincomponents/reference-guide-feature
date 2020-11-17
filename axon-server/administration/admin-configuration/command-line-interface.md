@@ -128,7 +128,8 @@ A quick summary of the various commands is depicted below. Each command has a sp
     <tr>
       <td style="text-align:left"></td>
       <td style="text-align:left">replication-groups</td>
-      <td style="text-align:left">Lists all details of registered replication groups within an Axon Server EE deployment</td>
+      <td style="text-align:left">Lists all details of registered replication groups within an Axon Server
+        EE deployment</td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
@@ -433,8 +434,7 @@ _Optional parameters_
 
 _**replication-groups**_**‌**
 
-Lists all replication groups and the nodes assigned to the replication groups. For each replication groups it shows the name of the replication group, 
-the master node for the replication group and the member nodes of the replication group.‌
+Lists all replication groups and the nodes assigned to the replication groups. For each replication groups it shows the name of the replication group, the master node for the replication group and the member nodes of the replication group.‌
 
 ```text
 $ java -jar axonserver-cli.jar replication-groups -S http://[node]:[port] [-t token]
@@ -448,8 +448,7 @@ _Optional parameters_
 
 _**register-replication-group**_**‌**
 
-The register-replication-group command helps in the registration and creation of a new replication group. 
-A sample of the command with the mandatory parameters is depicted below:
+The register-replication-group command helps in the registration and creation of a new replication group. A sample of the command with the mandatory parameters is depicted below:
 
 ```text
 $ java -jar ./axonserver-cli.jar register-replication-group  -c [context-name] -n [members]‌ -a [members] -m [members] -p [members] -s [members] -S http://[node]:[port] [-t token]
@@ -471,8 +470,7 @@ _Optional parameters_
 
 _**delete-replication-group**_**‌**
 
-The delete-replication-group command helps in the deletion of a replication group and its associated data from all member nodes of that replication group. 
-A sample of the command with the mandatory parameters is depicted below:
+The delete-replication-group command helps in the deletion of a replication group and its associated data from all member nodes of that replication group. A sample of the command with the mandatory parameters is depicted below:
 
 ```text
 $ java -jar ./axonserver-cli.jar delete-replication-group  -g [replication-group-name] -S http://[node]:[port]
@@ -486,7 +484,7 @@ _Optional parameters_
 
 * _**-S**_ if not supplied connects by default to [http://localhost:8024](http://localhost:8024). If supplied, it should be any node serving the _\_admin_ context.
 * _**-t**_  refers to the access token to authenticate at  the server to which the command is sent to.
-* _** --preserve-event-store**_  option to keep all the event store data for all the nodes in the replication group (false by default)
+*  _**--preserve-event-store**_  option to keep all the event store data for all the nodes in the replication group \(false by default\)
 
 _**add-node-to-replication-group**_**‌**
 
@@ -550,8 +548,7 @@ The register-context command helps in the registration and creation of a new con
 $ java -jar ./axonserver-cli.jar register-context  -c [context-name] -g [replication-group-name] -n [members]‌ -a [members] -m [members] -p [members] -S http://[node]:[port] [-t token]
 ```
 
-If you don't provide an existing replication group name, you need to provide the names and roles of the nodes to include in the replication group to create.
-If you don't provide a replication group name, but do provide nodes, it will create a replication group with the same name as the context. 
+If you don't provide an existing replication group name, you need to provide the names and roles of the nodes to include in the replication group to create. If you don't provide a replication group name, but do provide nodes, it will create a replication group with the same name as the context.
 
 _Mandatory parameters_
 
@@ -584,5 +581,5 @@ _Optional parameters_
 
 * _**-S**_ if not supplied connects by default to [http://localhost:8024](http://localhost:8024). If supplied, it should be any node serving the _\_admin_ context.
 * _**-t**_  refers to the access token to authenticate at  the server to which the command is sent to.
-* _** --preserve-event-store**_  option to keep the event store data (false by default).
+*  _**--preserve-event-store**_  option to keep the event store data \(false by default\).
 

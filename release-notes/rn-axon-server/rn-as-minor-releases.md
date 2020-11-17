@@ -45,13 +45,14 @@ This page aims to provide a dedicated overview of patch releases for the Axon Se
 
 * Reduced risk for contention when opening an index file
 * Offload expensive data-fetching operations to separate thread pool
-* Option to configure the way that index files are opened (memory mapped or file channel based)
+* Option to configure the way that index files are opened \(memory mapped or file channel based\)
 * Limit the amount of commands/queries held in Axon Server waiting for the handlers to be ready to handle them, to avoid
+
   out of memory errors on Axon Server
 
 ### Release 4.3.3
 
-* Fix for validation error starting up when there are multiple snapshot files (Standard Edition only)
+* Fix for validation error starting up when there are multiple snapshot files \(Standard Edition only\)
 
 ### Release 4.3.2
 
@@ -63,7 +64,7 @@ This page aims to provide a dedicated overview of patch releases for the Axon Se
 
 * Updated usage output in CLI
 * Updated gRPC/Netty versions
-* Prevent errors in log (sending ad-hoc result to client that has gone, sending heartbeat to client that has gone)
+* Prevent errors in log \(sending ad-hoc result to client that has gone, sending heartbeat to client that has gone\)
 
 ## _Release 4.2_
 
@@ -149,7 +150,9 @@ This page aims to provide a dedicated overview of patch releases for the Axon Se
 * Fix for connections not correctly registered
 * Changed initialization sequence for event store to initialize completed segments first
 * Changed order of files in the backup endpoint for contexts with a jump skip index to list the global index files
+
   before the segment index files
+
 * Fix timing issue when a follower sends new events to a new leader before it is fully initialized
 * Improved logging and error handling for log compaction task
 

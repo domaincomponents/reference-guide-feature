@@ -52,11 +52,7 @@ This is how parameters affect the behavior of the command gateway:
 
   Metadata defined by latter parameters will overwrite the metadata of earlier parameters, if their key is equal.
 
-* Parameters of type `CommandCallback` will have their `onResult(CommandMessage<? extends C>, CommandResultMessage<? extends R>)` invoked after the command has been handled.
-  Although the `CommandCallback` provides a means to deal with the result of command handling, this is no impact on whether you can define a return type on the custom command gateway.
-  In case both a callback and return type are defined, the invocations of the callback will always match with the return value \(or exception\).
-  Lastly, know that you may pass in several `CommandCallback` instances, which all will be invoked in order. 
-
+* Parameters of type `CommandCallback` will have their `onResult(CommandMessage<? extends C>, CommandResultMessage<? extends R>)` invoked after the command has been handled. Although the `CommandCallback` provides a means to deal with the result of command handling, this is no impact on whether you can define a return type on the custom command gateway. In case both a callback and return type are defined, the invocations of the callback will always match with the return value \(or exception\). Lastly, know that you may pass in several `CommandCallback` instances, which all will be invoked in order.
 * The last two parameters indicate a timeout and may be of types `long` \(or `int`\) and `TimeUnit`.
 
   The method will block at most as long as these parameters indicate. How the method reacts to a timeout depends on the exceptions declared on the method \(see below\).
@@ -425,7 +421,7 @@ By default, [`SimpleCommandBus`](implementations.md) is configured to handle inc
 
 `DistributedCommandBus` is an alternative approach to distributing command bus \(commands\). Each instance of the `DistributedCommandBus` on each JVM is called a "Segment".
 
-![Structure of the Distributed Command Bus](../../.gitbook/assets/distributed-command-bus.png)
+![Structure of the Distributed Command Bus](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/distributed-command-bus.png)
 
 The `DistributedCommandBus` relies on two components: a `CommandBusConnector`, which implements the communication protocol between the JVM's, and the `CommandRouter`, which chooses a destination for each incoming command. This router defines which segment of the `DistributedCommandBus` should be given a \`command, based on a routing key calculated by a routing strategy. Two commands with the same routing key will always be routed to the same segment, as long as there is no change in the number and configuration of the segments. Generally, the identifier of the targeted aggregate is used as a routing key.
 

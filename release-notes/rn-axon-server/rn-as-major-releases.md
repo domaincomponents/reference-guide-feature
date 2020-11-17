@@ -16,7 +16,9 @@ Enterprise Edition only
 * New index type to improve speed in reading aggregates
 * Axon Server Enterprise can now start without a license and has the option to upload licenses to the cluster
 * Cluster templates to initialize a cluster including replication groups, contexts, users and applications based on a
+
     template
+
 * Multi-tier storage to keep only recent data at primary nodes
 * Some storage properties can now be set at the context level
 

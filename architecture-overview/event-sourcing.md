@@ -4,11 +4,11 @@ In a traditional way of storing an application’s state, we capture the current
 
 Event Sourcing is a way of storing an application’s state through the history of events that have happened in the past. The current state is reconstructed based on the full history of events, where each event represents a change or fact in our application. Events give us a single source of truth about what happened in our application. It is especially beneficial in applications that need to provide a full audit log to external reviewers. The current state is called _Materialized state_ in some resources \(see _Figure 1_\).
 
-![Events as the source to construct state](../.gitbook/assets/materialized-state.jpeg)
+![Events as the source to construct state](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/materialized-state.jpeg)
 
 Let's see on an example how Event Sourcing differs from Traditional Storage \(see Figure 2\). In Traditional Storage system we only know that we have ordered a pizza and a cola. In Event Sourcing, we see that a user selected a pizza, selected a cola, selected an ice cream and deselected an ice cream. Information about selection/deselection of an ice cream is not present in Traditional Storage. With Event Sourcing we can reason about why a user deselected an ice cream, was the price too high, or some other reason. The point is that we didn't lose that information and we can benefit from it in various ways. Later on we can see that a user confirmed the order.
 
-![Traditional Storage v/s Event Sourcing](../.gitbook/assets/tradvseventsourcing.png)
+![Traditional Storage v/s Event Sourcing](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/tradvseventsourcing.png)
 
 ## Event Store
 
@@ -24,7 +24,7 @@ Event Sourcing is a natural fit with [CQRS](https://axoniq.io/resources/cqrs). T
 
 Instead of reconstructing the entire command model state, which would be a lengthy process, we separate the model in aggregates; parts of the model that need to be strongly consistent. This separation in aggregates makes models easier to reason about, more adaptable to change, and more importantly, it makes applications more scalable.
 
-![CQRS Concept](../.gitbook/assets/cqrs.jpg)
+![CQRS Concept](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/cqrs.jpg)
 
 ## Benefits
 

@@ -116,7 +116,7 @@ All admin nodes are member of the “_\_admin_” context, and it is used to dis
 
 The UI console displays the newly initialized admin node as shown below \(assuming axonserver-1 as the name of the node\)
 
-![Admin Node initialized](../../../.gitbook/assets/admin_node_initialization.png)
+![Admin Node initialized](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/admin_node_initialization.png)
 
 #### _Additional Nodes_
 
@@ -188,7 +188,7 @@ The cluster configuration information depicts:
 
 The UI console displays the newly initialized admin node as shown below \(assuming axonserver-1 as the name of the node\)
 
-![Additional node registered.](../../../.gitbook/assets/admin_node_additional_node1.png)
+![Additional node registered.](https://github.com/domaincomponents/reference-guide-feature/tree/1927f746917a2f2502557f3d4744568cf9336dde/.gitbook/assets/admin_node_additional_node1.png)
 
 A production grade setup would require more advanced configuration. For example an Axon Server EE node can be assigned to play different roles within a cluster - it may serve as an admin node, providing services to configure the cluster and keep it running, next to the “regular” event store and messaging functions. It can also be configured to only service specific _**contexts**_ in various roles. Contexts are comparable to logical databases in a RDBMS. They allow for strong segregation without requiring deploying and managing full instances.
 

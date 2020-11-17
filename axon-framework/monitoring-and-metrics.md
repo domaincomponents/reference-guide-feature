@@ -62,30 +62,28 @@ To that end the `TrackingEventProcessor` exposes the `processingStatus()` method
 * The `Segment` it reflects the status of.
 * A boolean through `isCaughtUp()` specifying whether it is caught up with the Event Stream.
 * A boolean through `isReplaying()` specifying whether the given Segment is ​[replaying](events/event-processors.md#replaying-events).
-
 * A boolean through `isMerging()` specifying whether the given Segment is [​merging](events/event-processors.md#splitting-and-merging-tracking-tokens).
 * The `TrackingToken` of the given Segment.
 * A boolean through `isErrorState()` specifying whether the Segment is in an error state.
 * An optional `Throwable` if the Event Tracker reached an error state.
 * An optional `Long` through `getCurrentPosition` defining the current position of the `TrackingToken`.
 * An optional `Long` through `getResetPosition` defining the position at reset of the `TrackingToken`.
+
   This field will be `null` in case the `isReplaying()` returns `false`.
+
   It is possible to derive an estimated duration of replaying by comparing the current position with this field.
+
 * An optional `Long` through `mergeCompletedPosition()` defining the position on the `TrackingToken` when merging will be completed.
+
   This field will be `null` in case the `isMerging()` returns `false`.
+
   It is possible to derive an estimated duration of merging by comparing the current position with this field.
 
-Some scenarios call for a means to react on _when_ the status' of a processor changes.
-For example, whenever the status switches from replay being `true` or `false`.
-To that end, a `EventTrackerStatusChangeListener` can be configured through the `TrackingEventProcessorConfiguration` for a `TrackingEventProcessor`.
+Some scenarios call for a means to react on _when_ the status' of a processor changes. For example, whenever the status switches from replay being `true` or `false`. To that end, a `EventTrackerStatusChangeListener` can be configured through the `TrackingEventProcessorConfiguration` for a `TrackingEventProcessor`.
 
-The `EventTrackerStatusChangeListener` is a functional interface defining an `onEventTrackerStatusChange(Map<Integer, EventTrackerStatus>)` method, which will be invoked by the `TrackingEventProcessor` whenever there is a significant change in any one of the `EventTrackerStatus` objects.
-The collection of integer to `EventTrackerStatus` provides the status' which have caused the change listener to be invoked.
-This thus allows you to check the given `EventTrackerStatus`' to react accordingly.
+The `EventTrackerStatusChangeListener` is a functional interface defining an `onEventTrackerStatusChange(Map<Integer, EventTrackerStatus>)` method, which will be invoked by the `TrackingEventProcessor` whenever there is a significant change in any one of the `EventTrackerStatus` objects. The collection of integer to `EventTrackerStatus` provides the status' which have caused the change listener to be invoked. This thus allows you to check the given `EventTrackerStatus`' to react accordingly.
 
-Know that by default, the processor will only invoke the change listener if any of the boolean fields has changed.
-If it is required to react on the position changes as well, you can provide a `EventTrackerStatusChangeListener` which overrides the `validatePositions` method to return `true`.
-Do note that this means the change listener will be invoked _often_, as it is expected to handle lots of events.   
+Know that by default, the processor will only invoke the change listener if any of the boolean fields has changed. If it is required to react on the position changes as well, you can provide a `EventTrackerStatusChangeListener` which overrides the `validatePositions` method to return `true`. Do note that this means the change listener will be invoked _often_, as it is expected to handle lots of events.
 
 ## Metrics <a id="metrics"></a>
 
@@ -191,6 +189,7 @@ management.metrics.export.prometheus.enabled=true
 management.endpoint.prometheus.enabled=true
 ```
 {% endtab %}
+
 {% tab title="Spring Boot AutoConfiguration - With Tags" %}
 ```text
 # The default value is `true`. 
@@ -214,8 +213,7 @@ management.endpoint.prometheus.enabled=true
 {% endtab %}
 {% endtabs %}
 
-The scenario might occur that more fine-grained control over which `MessageMonitor` instance are defined is necessary.
-The following snippet provides as sample if you want to have more specific metrics on any of the message handling components:
+The scenario might occur that more fine-grained control over which `MessageMonitor` instance are defined is necessary. The following snippet provides as sample if you want to have more specific metrics on any of the message handling components:
 
 ```java
 // Java (Spring Boot Configuration) - Micrometer example

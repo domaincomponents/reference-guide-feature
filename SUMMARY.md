@@ -98,6 +98,7 @@
   * [Backup and Messaging-only Nodes](axon-server/administration/backup-and-messaging-only-nodes.md)
   * [Backups](axon-server/administration/backups.md)
   * [Recovery](axon-server/administration/recovery.md)
+  * [Error Codes](axon-server/administration/error-codes.md)
 * [Security](axon-server/security/README.md)
   * [Access Control](axon-server/security/access-control.md)
   * [SSL](axon-server/security/ssl.md)
@@ -115,8 +116,8 @@
 * [Kafka](extensions/kafka.md)
 * [Kotlin](extensions/kotlin.md)
 * [Mongo](extensions/mongo.md)
-* [Reactor](extensions/reactor/reactor.md)
-  * [Reactor Gateways](extensions/reactor/reactive-gateways/reactive-gateways.md)
+* [Reactor](extensions/reactor/README.md)
+  * [Reactor Gateways](extensions/reactor/reactive-gateways.md)
 * [Spring Cloud](extensions/spring-cloud.md)
 * [Tracing](extensions/tracing.md)
 
@@ -129,3 +130,4 @@
 * [C. Meta Annotations](appendices/meta-annotations.md)
 * [D. Identifier Generation](appendices/identifier-generation.md)
 * [E. Axon Server Query Language](appendices/query-reference.md)
+

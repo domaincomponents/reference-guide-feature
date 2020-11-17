@@ -6,57 +6,32 @@ Any patch release made for an Axon project is tailored towards resolving bugs. T
 
 ### Release 4.4.4
 
-* There was a bug which made it so that an `@ResetHandler` annotated method without any parameters was included for validation if a component could handle a specific type of event.
-  This exact validation is used to filter out events from the event stream to optimize the entire stream.
-  The optimization was thus mitigated by the simple fact of introducing a default `@ResetHandler`.
-  The problem was marked by `@kad-hesseg` (for which thanks) and resolved in pull request [#1597](https://github.com/AxonFramework/AxonFramework/pull/1597).
- 
- * A new `SnapshotTriggerDefinition` called `AggregateLoadTimeSnapShotTriggerDefinition` has been introduced, which uses the load time of an aggregate to trigger a snapshot creation.
- 
- * When using an aggregate class hierarchy, `@AggregateMember` annotated fields present on the root would be duplicated for every class in the hierarchy which included message handling functions.
-   This problem was traced back to the `AnnotatedAggregateMetaModelFactory.AnnotatedAggregateModel` which looped over an inconsistent set of classes to find these members.
-   The issue was marked by `@kad-malota` and resolved in pull request [#1595](https://github.com/AxonFramework/AxonFramework/pull/1595).
+* There was a bug which made it so that an `@ResetHandler` annotated method without any parameters was included for validation if a component could handle a specific type of event. This exact validation is used to filter out events from the event stream to optimize the entire stream. The optimization was thus mitigated by the simple fact of introducing a default `@ResetHandler`. The problem was marked by `@kad-hesseg` \(for which thanks\) and resolved in pull request [\#1597](https://github.com/AxonFramework/AxonFramework/pull/1597).
+  * A new `SnapshotTriggerDefinition` called `AggregateLoadTimeSnapShotTriggerDefinition` has been introduced, which uses the load time of an aggregate to trigger a snapshot creation.
+  * When using an aggregate class hierarchy, `@AggregateMember` annotated fields present on the root would be duplicated for every class in the hierarchy which included message handling functions. This problem was traced back to the `AnnotatedAggregateMetaModelFactory.AnnotatedAggregateModel` which looped over an inconsistent set of classes to find these members. The issue was marked by `@kad-malota` and resolved in pull request [\#1595](https://github.com/AxonFramework/AxonFramework/pull/1595).
 
 For a complete set of the release notes, please check [here](https://github.com/AxonFramework/AxonFramework/releases/tag/axon-4.4.4).
 
 ### Release 4.4.3
 
-* An optimization in the snapshotting process was introduced in pull request [#1510](https://github.com/AxonFramework/AxonFramework/pull/1510).
-  This PR ensures no unnecessary snapshots are staged in the `AbstractSnapshotter` by validating none have been scheduled yet.
-  This fix will resolve potential high I.O. when snapshots are being recreated for aggregates which have a high number of events.
-
-* The assignment rules used by the `EventProcessingConfigurer` weren't always taken into account as desired.
-  This inconsistency compared to regular assignment through the `@ProcessingGroup` annotation has been resolved in [this](https://github.com/AxonFramework/AxonFramework/pull/1500) pull request.
-  
-* Heartbeat messages between Axon Server and an Axon Framework application were already configurable, but only from the server's side.
-  Properties have been introduced to also enables this from the clients end, as specified further in [this](https://github.com/AxonFramework/AxonFramework/pull/1511) pull request.
-  Enabling heartbeat messages will ensure the connection is preemptively closed if no response has been received in the configured time frame.
+* An optimization in the snapshotting process was introduced in pull request [\#1510](https://github.com/AxonFramework/AxonFramework/pull/1510). This PR ensures no unnecessary snapshots are staged in the `AbstractSnapshotter` by validating none have been scheduled yet. This fix will resolve potential high I.O. when snapshots are being recreated for aggregates which have a high number of events.
+* The assignment rules used by the `EventProcessingConfigurer` weren't always taken into account as desired. This inconsistency compared to regular assignment through the `@ProcessingGroup` annotation has been resolved in [this](https://github.com/AxonFramework/AxonFramework/pull/1500) pull request.
+* Heartbeat messages between Axon Server and an Axon Framework application were already configurable, but only from the server's side. Properties have been introduced to also enables this from the clients end, as specified further in [this](https://github.com/AxonFramework/AxonFramework/pull/1511) pull request. Enabling heartbeat messages will ensure the connection is preemptively closed if no response has been received in the configured time frame.
 
 To check out all fixes introduced in 4.4.3, you can check them out on [this](https://github.com/AxonFramework/AxonFramework/issues?q=is%3Aclosed+milestone%3A%22Release+4.4.3%22) page.
 
 ### Release 4.4.2
 
-* A persistent loop of 500ms was spotted during event consumption from Axon Server.
-  Credits go to Damir Murat who has spotted the [issue](https://github.com/AxonFramework/AxonFramework/issues/1481).
-  With his help the issue was found quickly and eventually resolved in pull request [#1484](https://github.com/AxonFramework/AxonFramework/pull/1484).
-
-* A serialization issue was found when working with the `ConfigToken` and de-/serialize it through the `JacksonSerializer`.
-  This problem was uncovered in issue [#1482](https://github.com/AxonFramework/AxonFramework/issues/1482) and resolved in pull request [#1485](https://github.com/AxonFramework/AxonFramework/pull/1485).
-
-* The introduction of the [AxonServer Connector for Java](https://github.com/AxonIQ/axonserver-connector-java) to simplify the framework's integration with Axon Server introduced some configuration issues.
-  For example, the `AxonServerConfiguration#isForceReadFromLeader` wasn't used when opening an event stream (resolved in PR [#1488](https://github.com/AxonFramework/AxonFramework/pull/1488)).
-  
-* Furthermore, properties like the `max-message-size`, gRPC keep alive settings and `processorNotificationRate` weren't used when forming a connection with Axon Server.
-  This issue was covered by pull request [#1487](https://github.com/AxonFramework/AxonFramework/pull/1487).
+* A persistent loop of 500ms was spotted during event consumption from Axon Server. Credits go to Damir Murat who has spotted the [issue](https://github.com/AxonFramework/AxonFramework/issues/1481). With his help the issue was found quickly and eventually resolved in pull request [\#1484](https://github.com/AxonFramework/AxonFramework/pull/1484).
+* A serialization issue was found when working with the `ConfigToken` and de-/serialize it through the `JacksonSerializer`. This problem was uncovered in issue [\#1482](https://github.com/AxonFramework/AxonFramework/issues/1482) and resolved in pull request [\#1485](https://github.com/AxonFramework/AxonFramework/pull/1485).
+* The introduction of the [AxonServer Connector for Java](https://github.com/AxonIQ/axonserver-connector-java) to simplify the framework's integration with Axon Server introduced some configuration issues. For example, the `AxonServerConfiguration#isForceReadFromLeader` wasn't used when opening an event stream \(resolved in PR [\#1488](https://github.com/AxonFramework/AxonFramework/pull/1488)\).
+* Furthermore, properties like the `max-message-size`, gRPC keep alive settings and `processorNotificationRate` weren't used when forming a connection with Axon Server. This issue was covered by pull request [\#1487](https://github.com/AxonFramework/AxonFramework/pull/1487).
 
 [This](https://github.com/AxonFramework/AxonFramework/issues?q=is%3Aclosed+milestone%3A%22Release+4.4.2%22) page shares a complete list of all resolved issues for this release.
 
 ### Release 4.4.1
 
-A single fix was performed as soon as possible to release 4.4, in conjunction with the new [Axon Server Connector](https://github.com/AxonIQ/axonserver-connector-java) used by this release.
-There was an off by one scenario when an Event Processor started reading events from the beginning of time.
-This meant that the first event in the event store was systematically skipped.
-The bug was resolved in [this](https://github.com/AxonFramework/AxonFramework/commit/3a055407437589bc1388cecca0b6e2f0bc61ea26) commit.
+A single fix was performed as soon as possible to release 4.4, in conjunction with the new [Axon Server Connector](https://github.com/AxonIQ/axonserver-connector-java) used by this release. There was an off by one scenario when an Event Processor started reading events from the beginning of time. This meant that the first event in the event store was systematically skipped. The bug was resolved in [this](https://github.com/AxonFramework/AxonFramework/commit/3a055407437589bc1388cecca0b6e2f0bc61ea26) commit.
 
 ## _Release 4.3_
 
